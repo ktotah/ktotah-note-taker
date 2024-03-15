@@ -51,18 +51,6 @@ app.post('/api/notes', async (req, res) => {
   }
 });
 
-// Optional DELETE route for bonus challenge
-// app.delete('/api/notes/:id', async (req, res) => {
-//   try {
-//     let notes = JSON.parse(await readFileAsync('./db/db.json', 'utf8'));
-//     notes = notes.filter(note => note.id !== req.params.id);
-//     await writeFileAsync('./db/db.json', JSON.stringify(notes));
-//     res.json({ message: 'Note deleted' });
-//   } catch (err) {
-//     res.status(500).json({ error: "Error deleting note" });
-//   }
-// });
-
 // HTML Routes
 
 // Route to serve the 'notes.html' file
