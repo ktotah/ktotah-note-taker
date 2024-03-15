@@ -5,6 +5,7 @@ let saveNoteBtn;
 let newNoteBtn;
 let noteList;
 
+// This conditional statement checks if the current window location is the notes page.
 if (window.location.pathname === '/notes') {
   noteForm = document.querySelector('.note-form');
   noteTitle = document.querySelector('.note-title');
@@ -28,6 +29,7 @@ const hide = (elem) => {
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
 
+// Function to fetch notes from the server and handle them as JSON.
 const getNotes = () =>
   fetch('/api/notes', {
     method: 'GET',
@@ -36,6 +38,7 @@ const getNotes = () =>
     }
   });
 
+// Function to save a new note by posting to the server.
 const saveNote = (note) =>
   fetch('/api/notes', {
     method: 'POST',
@@ -45,6 +48,7 @@ const saveNote = (note) =>
     body: JSON.stringify(note)
   });
 
+// Function to delete a note by its ID.
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
     method: 'DELETE',
@@ -53,6 +57,7 @@ const deleteNote = (id) =>
     }
   });
 
+// Function to render the active note.
 const renderActiveNote = () => {
   hide(saveNoteBtn);
   hide(clearBtn);
@@ -72,6 +77,7 @@ const renderActiveNote = () => {
   }
 };
 
+// Function to handle saving a note when the save button is clicked.
 const handleNoteSave = () => {
   const newNote = {
     title: noteTitle.value,
